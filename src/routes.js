@@ -1,15 +1,13 @@
 const express = require('express');
 const router  = express.Router();
-const contactController = require('./contactController');
+const controller = require('./controller');
 
 
 // Contact APIs > contactController
-router.post('/contact', contactController.create);
-router.get('/contact/:id', contactController.read);
-router.get('/contact', contactController.readAll);
-router.put('/contact/:id', contactController.update);
-router.delete('/contact/:id', contactController._delete);
-router.delete('/contact', contactController._deleteAll);
+router.post('/user', controller.create);
+router.get('/user', controller.read);
+router.put('/user', controller.update);
+router.delete('/user', controller._delete);
 
 //Healthcheck
 router.get('/healthcheck', (req, res) => {

@@ -4,9 +4,7 @@ const Schema = require('mongoose').Schema;
 const schema = new Schema({
     name: String,
     email: String,
-    description: String,
-    userId: Schema.Types.ObjectId
+    password: String
 }, { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } });
-
-const Contact = mongoose.model("contact", schema);
-module.exports = Contact;
+const myModel = mongoose.model("myCollection", schema);
+module.exports = myModel;

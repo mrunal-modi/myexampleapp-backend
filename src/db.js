@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 let dbName = process.env.DB_NAME;
 const dbAddress = process.env.DB_HOST;
-const dbPort = process.env.DB_PORT;
-if(!dbName || !dbAddress || !dbPort){
+const isSRV = process.env.IS_DB_SRV;
+if(!dbName || !dbAddress){
     throw new Error("Mongo error unable to configure database");
 }
 
@@ -12,7 +12,9 @@ let options = {
     dbName: dbName,
 };
 
-mongoose.connect(`mongodb+srv://${process.env.DB_HOST}`, options)
+// mongoose.connect(`mongodb://${dbAddress}:${dbPort}`, options)
+
+mongoose.connect(`mongodb${isSRV == true ? "+srv" : ""}://${process.env.DB_HOST}`, options)
 .then(() => console.log("connected!"))
 .catch(err => {
     if (err.message.indexOf("ECONNREFUSED") !== -1) {
