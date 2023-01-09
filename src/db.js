@@ -12,9 +12,8 @@ let options = {
     dbName: dbName,
 };
 
-// mongoose.connect(`mongodb://${dbAddress}:${dbPort}`, options)
-
-mongoose.connect(`mongodb${isSRV == true ? "+srv" : ""}://${process.env.DB_HOST}`, options)
+mongoose.connect(`mongodb+srv://${process.env.DB_HOST}`, options)
+// mongoose.connect(`mongodb${isSRV == true ? "+srv" : ""}://${process.env.DB_HOST}`, options)
 .then(() => console.log("connected!"))
 .catch(err => {
     if (err.message.indexOf("ECONNREFUSED") !== -1) {
