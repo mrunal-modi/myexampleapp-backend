@@ -29,6 +29,6 @@ app.use(bodyParser.json());
 app.use(routes);
 
 // listen
-var port = 8080;
+var port = process.env.PORT || 8080;
 app.listen(port);
 console.log('Running on port: ' + port);
