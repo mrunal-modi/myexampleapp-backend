@@ -12,13 +12,7 @@ require('./src/db');
 
 // used to serve static files from public directory
 app.use(express.static('public'));
-
-// Cors
-var corsOptions = {
-    origin: 'https://myexample.com',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-  }
-app.use(cors(corsOptions));
+app.use(cors());
 
 
 // Data parser - used to parse post data
