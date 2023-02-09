@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 // Routes
 app.use("/api/", routes);
 
-// Swagger URL /api/api-docs
+// Swagger URL /
 var options = {
   explorer: true,
   swaggerOptions: {
