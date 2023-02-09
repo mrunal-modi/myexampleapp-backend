@@ -1,0 +1,140 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "CRUD",
+      "description": "Application API",
+      "license": {
+        "name": "devstacktutor",
+        "url": "https://devstacktutor.com"
+      }
+    },
+    "host": "u7mv6p-8080.preview.csb.app",
+    "basePath": "/api",
+    "tags": [
+      {
+        "name": "CRUD APIs",
+        "description": "Learn APIs using CRUD methods in NodeJs"
+      }
+    ],
+    "schemes": ["https"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+  
+    "paths": {
+      "/user": {
+        "post": {
+          "tags": ["Create"],
+          "description": "Create new user",
+          "parameters": [
+            {
+              "name": "name",
+              "in": "body",
+              "description": "User that we want to create using the Frontend Signup form",
+              "schema": {
+                "$ref": "#/definitions/UserSchema"
+              }
+            }
+          ],
+          "produces": ["application/json"],
+          "responses": {
+            "200": {
+              "description": "New user is created",
+              "schema": {
+                "$ref": "#/definitions/UserSchema"
+              }
+            }
+          }
+        },
+        "get": {
+          "tags": ["Read"],
+          "description": "Get all users",
+          "parameters": [
+            {
+              "name": "email",
+              "in": "query",
+              "description": "Filter for user by email"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/user/{email}": {
+        "get": {
+          "tags": ["Read"],
+          "description": "Get specific user based on email",
+          "parameters": [
+            {
+              "name": "email",
+              "in": "path",
+              "description": "user that we want to list"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        },
+        "put": {
+          "tags": ["Update"],
+          "description": "Update specific user password",
+          "parameters": [
+            {
+              "name": "email",
+              "in": "path",
+              "description": "email that we update the password for"
+            },
+            {
+              "name": "password",
+              "in": "body",
+              "description": "new password",
+              "schema": {
+                "$ref": "#/definitions/UserSchema"
+              }
+            }
+          ],
+          "produces": ["application/json"],
+          "responses": {
+            "200": {
+              "description": "Updated",
+              "schema": {
+                "$ref": "#/definitions/UserSchema"
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": ["Delete"],
+          "description": "Delete specific user based on email",
+          "parameters": [
+            {
+              "name": "email",
+              "in": "path",
+              "description": "user that we want to list"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "UserSchema": {
+        "required": [ "email" ],
+        "properties": {
+          "email": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+  
