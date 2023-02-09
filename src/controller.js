@@ -23,7 +23,7 @@ const create = async (req, res) => {
 const read = async (req, res) => {
   try {
     const email = req.query.email;
-    const result = await ContactModel.findOne({ email: email });
+    const result = await myModel.findOne({ email: email });
     return res.json(result);
   } catch (err) {
     console.log(err);
@@ -49,7 +49,7 @@ const readAll = async (req, res) => {
 const update = async (req, res) => {
   try {
     const email = req.query.email;
-    const result = await ContactModel.findOneAndUpdate({ email: email }, {
+    const result = await myModel.findOneAndUpdate({ email: email }, {
       $set: {
         email: req.body.email
       }
@@ -64,7 +64,7 @@ const update = async (req, res) => {
 const _delete = async (req, res) => {
   try {
     const email = req.query.email;
-    const result = await ContactModel.findOneAndDelete({ email: email });
+    const result = await myModel.findOneAndDelete({ email: email });
     return res.status(200).json(result);
   } catch (err) {
     console.log(err);
