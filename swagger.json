@@ -82,17 +82,17 @@
         },
         "put": {
           "tags": ["Update"],
-          "description": "Update specific user password",
+          "description": "Update specific record",
           "parameters": [
             {
               "name": "email",
               "in": "path",
-              "description": "email that we update the password for"
+              "description": "email that we update"
             },
             {
-              "name": "password",
+              "name": "email",
               "in": "body",
-              "description": "new password",
+              "description": "new email",
               "schema": {
                 "$ref": "#/definitions/UserSchema"
               }
