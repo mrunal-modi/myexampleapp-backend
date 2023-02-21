@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mrunal-modi/plantimeline.git"
+    "url": "git+https://github.com/mrunal-modi/myexampleapp-backend"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mrunal-modi/plantimeline/issues"
+    "url": "https://github.com/mrunal-modi/myexampleapp-backend"
   },
-  "homepage": "https://github.com/mrunal-modi/plantimeline#readme",
+  "homepage": "https://www.devstacktutor.com/",
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.20.1",
